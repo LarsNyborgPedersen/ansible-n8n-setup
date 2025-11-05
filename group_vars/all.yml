@@ -1,0 +1,6 @@
+floating_ip: "49.13.35.251"
+
+n8n_basic_auth_user: "admin"
+n8n_basic_auth_password: "ae61b6cb3c7bb63651ba4d154b0f2078722b766d49e6d4188e6dbe3a32163c3b"
+n8n_encryption_key: "4b2ac8fbb1ff02cf343225cc90e7c5b7a474a027dadb3f64ac94acbe4ebc13ae"
+timezone: "Europe/Copenhagen"

@@ -1,0 +1,27 @@
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - 127.0.0.1:5678:5678
+    environment:
+      - N8N_HOST={{ floating_ip }}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER={{ n8n_basic_auth_user }}
+      - N8N_BASIC_AUTH_PASSWORD={{ n8n_basic_auth_password }}
+      - N8N_ENCRYPTION_KEY={{ n8n_encryption_key }}
+      - WEBHOOK_URL=https://{{ floating_ip }}/
+      - GENERIC_TIMEZONE={{ timezone }}
+      - N8N_SECURE_COOKIE=true
+      - N8N_BLOCK_ENV_ACCESS_IN_NODE=true
+      - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
+      - DB_TYPE=sqlite
+      - DB_SQLITE_POOL_SIZE=2
+      - N8N_RUNNERS_ENABLED=true
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  n8n_data:
